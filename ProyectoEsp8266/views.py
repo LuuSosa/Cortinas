@@ -4,9 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 import requests
 
-ESP8266_IP = '192.168.1.33'  # Cambia por la dirección IP de tu ESP8266
+#ESP8266_IP = '192.168.1.33'  # Cambia por la dirección IP de tu ESP8266
+#ESP8266_IP = '192.168.84.11' #casa mia
+ESP8266_IP = '172.40.5.203' #wlan itesca
 
-@login_required
+# @login_required
 def control_led(request):
     return render(request, 'control_led.html')
 
@@ -29,3 +31,11 @@ def apagar_led(request):
         return render(request, 'control_led.html')  # Otra vez a la página de control
     else:
         return HttpResponse("Error al apagar el LED")
+
+def apagar_motor(request):
+    url = f"http://{ESP8266_IP}/apagarMotor"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return render(request, 'control_led.html')  # Otra vez a la página de control
+    else:
+        return HttpResponse("Error al apagar el motor")

@@ -20,9 +20,10 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('salir/', views.salir, name="salir"),
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # path('salir/', views.salir, name="salir"),
     path('', views.control_led, name='control_led'),  # Página principal con botones
     path('encender/', views.encender_led, name='encender_led'),
     path('apagar/', views.apagar_led, name='apagar_led'),
+    path('apagarMotor/', views.apagar_motor, name='apagar_motor'),
 ]

@@ -2,18 +2,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Control LED</title>
+    <title>Control Cortina</title>
 </head>
 <body>
-    <h1>Control LED</h1>
+    <center><h1>Control cortina</h1></center>
     <form action="{% url 'encender_led' %}" method="post">
         {% csrf_token %}
-        <input type="submit" value="Encender LED">
+        <center><input type="submit" value="Subir cortina"></center>
     </form>
+    <br>
     <form action="{% url 'apagar_led' %}" method="post">
         {% csrf_token %}
-        <input type="submit" value="Apagar LED">
+        <center><input type="submit" value="Bajar cortina"></center>
     </form>
-    <a href="{% url 'salir' %}">Cerrar Sesión</a>
+        <br>
+    <form action="{% url 'apagar_motor' %}" method="post">
+        {% csrf_token %}
+        <center><input type="submit" value="Apagar"></center>
+    </form>
+    <br>
+    <hr>
+    <br>
+
+   <center> <a href="">
+        <img src="https://i.ibb.co/L6rvZ53/20231129-103608.jpg" alt="20231129-103608" border="0"></a></center>
+
+{#    <a href="{% url 'salir' %}">Cerrar Sesión</a>#}
 </body>
 </html>
